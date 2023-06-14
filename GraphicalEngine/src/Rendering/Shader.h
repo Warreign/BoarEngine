@@ -13,12 +13,16 @@ namespace Warreign
 	class Shader
 	{
 	protected:
+		static inline const std::string GLSL_VERSION = "#version 460 core\n";
+
+	protected:
+		std::string m_vertFilename, m_fragFilename;
 		GLuint m_programID;
 
 		struct AttributeLocations
 		{
-			GLint position;
-			GLint color;
+			GLint position = -1;
+			GLint color = -1;
 		} m_attributes;
 
 		struct UniformLocations
@@ -37,8 +41,8 @@ namespace Warreign
 		void unbind() const;
 
 	public:
-		GLint attributeLocation(const std::string& name);
-		GLint uniformLocation(const std::string& name);
+		GLint attributeLocation(const std::string& name) const;
+		GLint uniformLocation(const std::string& name) const;
 
 	public:
 		void setInteger1(GLint uniform, int value);
