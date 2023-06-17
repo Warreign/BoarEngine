@@ -15,6 +15,11 @@ namespace Warreign
 	protected:
 		static inline const std::string GLSL_VERSION = "#version 460 core\n";
 
+	public:
+		Shader(const std::string& vertexShaderFilename, const std::string& fragmentShaderFilename);
+		Shader(const std::string& vertexShaderFilename, const std::string& geometryShaderFilename, const std::string& fragmentShaderFilename);
+		~Shader();
+
 	protected:
 		std::string m_vertFilename, m_fragFilename;
 		GLuint m_programID;
@@ -30,11 +35,7 @@ namespace Warreign
 		} m_uniforms;
 
 		static const std::string readShaderFromFile(const std::string& filename);
-
-	public:
-		Shader(const std::string& vertexShaderFilename, const std::string& fragmentShaderFilename);
-
-		~Shader();
+		static const GLuint compileShader(GLenum type, const std::string& filename);
 
 	public:
 		void bind() const;
