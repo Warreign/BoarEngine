@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\vcpkg.C.ProgramFiles.MicrosoftVisualStudio.2022.Preview.VC.vcpkg.1.0.0\build\native\vcpkg.C.ProgramFiles.MicrosoftVisualStudio.2022.Preview.VC.vcpkg.props" Condition="Exists('..\packages\vcpkg.C.ProgramFiles.MicrosoftVisualStudio.2022.Preview.VC.vcpkg.1.0.0\build\native\vcpkg.C.ProgramFiles.MicrosoftVisualStudio.2022.Preview.VC.vcpkg.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -21,7 +22,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>ClangCL</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -44,12 +45,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)\out\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)\output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>build\$(Platform)\$(Configuration)\</IntDir>
+    <PublicIncludeDirectories>
+    </PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)\out\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)\output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>build\$(Platform)\$(Configuration)\</IntDir>
+    <PublicIncludeDirectories>
+    </PublicIncludeDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -89,24 +94,26 @@
   <ItemGroup>
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Rendering\glad.c" />
-    <ClCompile Include="src\Rendering\Renderer.cpp" />
-    <ClCompile Include="src\Rendering\Shader.cpp" />
+    <ClCompile Include="src\rendering\glad.c" />
+    <ClCompile Include="src\rendering\Renderer.cpp" />
+    <ClCompile Include="src\rendering\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine.h" />
-    <ClInclude Include="src\Rendering\Buffers\DataType.h" />
-    <ClInclude Include="src\Rendering\Buffers\VertexBuffer.h" />
-    <ClInclude Include="src\Rendering\Renderer.h" />
-    <ClInclude Include="src\Rendering\Shader.h" />
-    <ClInclude Include="src\Shader\test.vs" />
+    <ClInclude Include="src\rendering\buffers\DataType.h" />
+    <ClInclude Include="src\rendering\buffers\VertexBuffer.h" />
+    <ClInclude Include="src\rendering\Renderer.h" />
+    <ClInclude Include="src\rendering\Shader.h" />
+    <ClInclude Include="assets\shaders\test.vs" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Shader\test.fs">
+    <ClInclude Include="assets\shaders\test.fs">
       <FileType>Document</FileType>
     </ClInclude>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\glfw.3.3.8\build\native\glfw.targets" Condition="Exists('..\packages\glfw.3.3.8\build\native\glfw.targets')" />
+    <Import Project="..\packages\vcpkg.C.ProgramFiles.MicrosoftVisualStudio.2022.Preview.VC.vcpkg.1.0.0\build\native\vcpkg.C.ProgramFiles.MicrosoftVisualStudio.2022.Preview.VC.vcpkg.targets" Condition="Exists('..\packages\vcpkg.C.ProgramFiles.MicrosoftVisualStudio.2022.Preview.VC.vcpkg.1.0.0\build\native\vcpkg.C.ProgramFiles.MicrosoftVisualStudio.2022.Preview.VC.vcpkg.targets')" />
   </ImportGroup>
 </Project>

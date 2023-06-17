@@ -18,16 +18,16 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rendering\Renderer.cpp">
+    <ClCompile Include="src\rendering\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rendering\glad.c">
+    <ClCompile Include="src\rendering\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rendering\Shader.cpp">
+    <ClCompile Include="src\rendering\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,21 +35,21 @@
     <ClInclude Include="src\Engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rendering\Renderer.h">
+    <ClInclude Include="src\rendering\Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rendering\Buffers\VertexBuffer.h">
+    <ClInclude Include="src\rendering\buffers\VertexBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rendering\Buffers\DataType.h">
+    <ClInclude Include="src\rendering\buffers\DataType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Shader\test.vs">
+    <ClInclude Include="assets\shaders\test.vs">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rendering\Shader.h">
+    <ClInclude Include="src\rendering\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Shader\test.fs" />
+    <ClInclude Include="assets\shaders\test.fs" />
   </ItemGroup>
 </Project>

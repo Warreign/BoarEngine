@@ -2,8 +2,8 @@
 
 #include <stdexcept>
 
-#include "Rendering/Renderer.h"
-#include "Rendering/Shader.h"
+#include "rendering/Renderer.h"
+#include "rendering/Shader.h"
 
 namespace Warreign
 {
