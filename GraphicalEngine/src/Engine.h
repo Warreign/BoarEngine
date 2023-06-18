@@ -21,9 +21,10 @@ namespace Warreign
 
 		// TMP
 	protected:
-		GLuint vbo;
-		GLuint ebo;
-		GLuint vao;
+		//GLuint vbo;
+		//GLuint ebo;
+		//GLuint vao;
+		VertexArray vao;
 		Shader s;
 
 	protected:

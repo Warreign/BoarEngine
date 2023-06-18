@@ -4,10 +4,10 @@
 
 namespace Warreign
 {
-	class VertexBuffer
+	class ElementBuffer
 	{
 	public:
-		VertexBuffer(void* data, int count, DataType type, GLenum usageHint = GL_STATIC_DRAW);
+		ElementBuffer(void* data, int count, DataType type, GLenum usageHint = GL_STATIC_DRAW);
 		void destroy();
 
 	private:
@@ -17,7 +17,6 @@ namespace Warreign
 
 	public:
 		const GLuint getId() const;
-		const DataType getType() const;
-		const int getCount() const;
+
 	};
 }

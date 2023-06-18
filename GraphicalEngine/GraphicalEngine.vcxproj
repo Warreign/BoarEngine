@@ -95,13 +95,18 @@
   <ItemGroup>
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\rendering\buffers\ElementBuffer.cpp" />
+    <ClCompile Include="src\rendering\buffers\VertexArray.cpp" />
+    <ClCompile Include="src\rendering\buffers\VertexBuffer.cpp" />
     <ClCompile Include="src\rendering\glad.c" />
     <ClCompile Include="src\rendering\Renderer.cpp" />
     <ClCompile Include="src\rendering\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine.h" />
-    <ClInclude Include="src\rendering\buffers\DataType.h" />
+    <ClInclude Include="src\rendering\buffers\types.h" />
+    <ClInclude Include="src\rendering\buffers\ElementBuffer.h" />
+    <ClInclude Include="src\rendering\buffers\VertexArray.h" />
     <ClInclude Include="src\rendering\buffers\VertexBuffer.h" />
     <ClInclude Include="src\rendering\Renderer.h" />
     <ClInclude Include="src\rendering\Shader.h" />
