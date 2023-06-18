@@ -1,21 +1,23 @@
 #include <iostream>
 #include <stdexcept>
 
-#define GLFW_INCLUDE_NONE
-#include <GLFW/glfw3.h>
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
 #include "Engine.h"
+
+extern "C" {
+	_declspec(dllexport) uint32_t NvOptimusEnablement = 1;
+}
 
 int main(int argc, char** argv)
 {
 	std::cout << "Hello World!" << std::endl;
 
-
 	try {
 		Warreign::Engine engine;
-		engine.mainLoop();
+		engine.run();
 	}
 	catch (std::exception& e)
 	{

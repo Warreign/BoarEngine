@@ -3,9 +3,8 @@
 #include <stdexcept>
 #include <iostream>
 
-#define GLFW_INCLUDE_NONE
-#include <GLFW/glfw3.h>
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 namespace Warreign
 {
@@ -13,6 +12,7 @@ namespace Warreign
 	{
 	public:
 		Renderer();
+		~Renderer();
 
 	protected:
 		// Window related variables

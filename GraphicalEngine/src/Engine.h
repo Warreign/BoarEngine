@@ -13,14 +13,18 @@ namespace Warreign
 	public:
 		Engine();
 
+
+	protected:
+		Renderer m_renderer;
+		double m_frameTime;
+		bool m_isRunning;
+
 		// TMP
 	protected:
 		GLuint vbo;
-
-	protected:
-		double m_frameTime;
-		bool m_isRunning;
-		Renderer m_renderer;
+		GLuint ebo;
+		GLuint vao;
+		Shader s;
 
 	protected:
 		void setup();
@@ -28,7 +32,7 @@ namespace Warreign
 		void update(double dt);
 
 	public:
-		void mainLoop();
+		void run();
 	};
 	
 }

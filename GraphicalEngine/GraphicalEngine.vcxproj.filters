@@ -44,12 +44,14 @@
     <ClInclude Include="src\rendering\buffers\DataType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="assets\shaders\test.vs">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\rendering\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="assets\shaders\test.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\shaders\test.frag" />
+    <Resource Include="assets\shaders\test.vert">
+      <Filter>Header Files</Filter>
+    </Resource>
   </ItemGroup>
 </Project>
