@@ -18,4 +18,14 @@ namespace Warreign
 	{
 		return m_id;
 	}
+
+	const int ElementBuffer::getCount() const
+	{
+		return m_count;
+	}
+
+	const GLenum ElementBuffer::getType() const
+	{
+		return typeEnum(m_type);
+	}
 }

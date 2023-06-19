@@ -44,7 +44,7 @@ namespace Warreign
 		m_elementBuffer = EBO;
 		glVertexArrayElementBuffer(m_id, EBO.getId());
 	}
-	const ElementBuffer& VertexArray::getElementBuffer()
+	const ElementBuffer& VertexArray::getElementBuffer() const
 	{
 		assert(m_elementBuffer.has_value());
 		return m_elementBuffer.value();

@@ -3,7 +3,6 @@
 #include <stdexcept>
 
 #include "rendering/Renderer.h"
-#include "rendering/Shader.h"
 
 namespace Warreign
 {
@@ -21,15 +20,13 @@ namespace Warreign
 
 		// TMP
 	protected:
-		//GLuint vbo;
-		//GLuint ebo;
-		//GLuint vao;
 		VertexArray vao;
 		Shader s;
+		Texture t;
 
 	protected:
 		void setup();
-		void render();
+		void renderScene();
 		void update(double dt);
 
 	public:

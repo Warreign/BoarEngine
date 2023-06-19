@@ -5,8 +5,11 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <IL/il.h>
 
 #include "buffers/VertexArray.h"
+#include "Texture.h"
+#include "Shader.h"
 
 namespace Warreign
 {
@@ -29,11 +32,16 @@ namespace Warreign
 		GLFWwindow* m_window;
 
 	protected:
-
 		void initWindow();
+		void initOpenGL();
+		void initDevIL();
 
+	public:
+		void render(const VertexArray& VAO, const Shader& shader) const;
 
 	public:
 		GLFWwindow* getWindow() const;
+		int getWindowWidth() const;
+		int getWindowHeight() const;
 	}; 
 }

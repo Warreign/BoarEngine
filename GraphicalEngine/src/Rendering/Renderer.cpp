@@ -4,7 +4,6 @@ namespace Warreign
 {
 	static void glfw_error_callback(int error, const char* description)
 	{
-		//std::cerr << "ERROR: " << description << std::endl;
 		throw std::runtime_error(description);
 	}
 
@@ -24,11 +23,14 @@ namespace Warreign
 	Renderer::Renderer()
 	{
 		initWindow();
+		initOpenGL();
+		initDevIL();
 	}
 
 	Renderer::~Renderer()
 	{
 		glfwTerminate();
+		ilShutDown();
 	}
 
 	void Renderer::initWindow()
@@ -50,30 +52,61 @@ namespace Warreign
 		}
 
 		glfwMakeContextCurrent(m_window);
+		glfwSwapInterval(1);
+	}
 
+	void Renderer::initOpenGL()
+	{
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 		{
 			throw std::runtime_error("Failed to initialize GLAD!");
 		};
-		//gladLoadGL();
 
-		const GLubyte* info = glGetString(GL_VENDOR);
-		std::cout << "INFO: Vendor: " << info << std::endl;
-		info = glGetString(GL_RENDERER);
-		std::cout << "INFO: Renderer: " << info << std::endl;
-		info = glGetString(GL_VERSION);
-		std::cout << "INFO: Version: " << info << std::endl;
+		std::cout << glGetString(GL_VENDOR) << std::endl;
+		std::cout << glGetString(GL_RENDERER) << std::endl;
+		std::cout << glGetString(GL_VERSION) << std::endl;
 
 		glEnable(GL_DEBUG_OUTPUT);
 		glDebugMessageCallback(opengl_debug_callback, 0);
 
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 		glViewport(0, 0, m_windowWidth, m_windowHeight);
-		glClearColor(0.2, 0.2 , 0.2, 1.0);
+		glClearColor(0.1, 0.2, 0.3, 1.0);
+	}
+
+	void Renderer::initDevIL()
+	{
+		ilInit();
+		ilEnable(IL_ORIGIN_SET);
+		ilOriginFunc(IL_ORIGIN_LOWER_LEFT);
+	}
+
+	void Renderer::render(const VertexArray& VAO, const Shader& shader) const
+	{
+		const ElementBuffer& EBO = VAO.getElementBuffer();
+		shader.bind();
+		VAO.bind();
+		glDrawElements(GL_TRIANGLES, EBO.getCount(), EBO.getType(), 0);
+		VAO.unbind();
+		shader.unbind();
+			
 	}
 
 	GLFWwindow* Renderer::getWindow() const
 	{
 		return m_window;
+	}
+
+	int Renderer::getWindowWidth() const
+	{
+		return m_windowWidth;
+	}
+
+	int Renderer::getWindowHeight() const
+	{
+		return m_windowHeight;
 	}
 }
 

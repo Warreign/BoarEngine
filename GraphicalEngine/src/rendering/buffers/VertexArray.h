@@ -28,6 +28,6 @@ namespace Warreign
 		void addVertexBuffer(VertexBuffer VBO, int attribIdx);
 		void setElementBuffer(ElementBuffer EBO);
 
-		const ElementBuffer& getElementBuffer();
+		const ElementBuffer& getElementBuffer() const;
 	};
 }

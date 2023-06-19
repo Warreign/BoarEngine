@@ -17,6 +17,8 @@ namespace Warreign
 
 	public:
 		const GLuint getId() const;
+		const int getCount() const;
+		const GLenum getType() const;
 
 	};
 }

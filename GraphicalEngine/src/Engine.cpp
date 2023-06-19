@@ -6,6 +6,7 @@ namespace Warreign
 		: m_renderer(),
 		m_frameTime(0), m_isRunning(true),
 		s("assets/shaders/test.vert", "assets/shaders/test.frag")
+		, t("assets/textures/kanji.png")
 	{
 		setup();
 	}
@@ -17,6 +18,13 @@ namespace Warreign
 			-0.5, -0.5,
 			 0.5, -0.5,
 			 0.5,  0.5
+		};
+
+		float texCoords[] = {
+			0.0, 1.0,
+			0.0, 0.0,
+			1.0, 0.0,
+			1.0, 1.0
 		};
 
 		float colors[] = {
@@ -34,38 +42,26 @@ namespace Warreign
 		VertexBuffer positionVBO(positions, 4, FVEC2);
 		vao.addVertexBuffer(positionVBO, 0);
 		VertexBuffer colorVBO(colors, 4, FVEC3);
-		vao.addVertexBuffer(colorVBO, 1);
+		vao.addVertexBuffer(colorVBO, 2);
+		VertexBuffer texCoordVBO(texCoords, 4, FVEC2);
+		vao.addVertexBuffer(texCoordVBO, 1);
 		ElementBuffer ebo(indices, 6, UINT);
 		vao.setElementBuffer(ebo);
 
-		//glCreateBuffers(1, &vbo);
-		//glNamedBufferData(vbo, sizeof(vertices), vertices, GL_STATIC_DRAW);
+		s.setInteger1("uTexture", 1);
+		t.bind(1);
 
-		//glCreateVertexArrays(1, &vao);
-		//glVertexArrayVertexBuffer(vao, 0, vbo, 0, 5 * sizeof(float));
-
-		//glEnableVertexArrayAttrib(vao, 0);
-		//glVertexArrayAttribFormat(vao, 0, 2, GL_FLOAT, GL_FALSE, 0);
-		//glVertexArrayAttribBinding(vao, 0, 0);
-
-		//glEnableVertexArrayAttrib(vao, 1);
-		//glVertexArrayAttribFormat(vao, 1, 3, GL_FLOAT, GL_FALSE, 2 * sizeof(float));
-		//glVertexArrayAttribBinding(vao, 1, 0);
-
-		//glCreateBuffers(1, &ebo);
-		//glNamedBufferData(ebo, sizeof(indices), indices, GL_STATIC_DRAW);
-
-		//glVertexArrayElementBuffer(vao, ebo);
+		float aspect = float(m_renderer.getWindowWidth()) / m_renderer.getWindowHeight();
+		float vertical = 2;
+		float horizontal = 2 * aspect;
+		glm::mat4 MVP = glm::ortho(-horizontal / 2, horizontal / 2, -vertical / 2, vertical / 2);
+		s.setMatrix4("mMVP", MVP);
 	}
 
-	void Engine::render()
+	void Engine::renderScene()
 	{
-		s.bind();
-		vao.bind();
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		//glDrawArrays(GL_TRIANGLES, 0, 3);
-		vao.unbind();
-		s.unbind();
+		glClear(GL_COLOR_BUFFER_BIT);
+		m_renderer.render(vao, s);
 
 		glfwSwapBuffers(m_renderer.getWindow());
 	}
@@ -85,7 +81,7 @@ namespace Warreign
 
 			glfwPollEvents();
 
-			render();
+			renderScene();
 			update(dt);
 		}
 	}
