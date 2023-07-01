@@ -11,6 +11,10 @@ namespace Warreign
 		setup();
 	}
 
+	Engine::~Engine()
+	{
+	}
+
 	void Engine::setup()
 	{
 		float positions[] = {
@@ -51,7 +55,7 @@ namespace Warreign
 		s.setInteger1("uTexture", 1);
 		t.bind(1);
 
-		float aspect = float(m_renderer.getWindowWidth()) / m_renderer.getWindowHeight();
+		float aspect = float(m_window.getWidth()) / m_window.getHeight();
 		float vertical = 2;
 		float horizontal = 2 * aspect;
 		glm::mat4 MVP = glm::ortho(-horizontal / 2, horizontal / 2, -vertical / 2, vertical / 2);
@@ -62,8 +66,6 @@ namespace Warreign
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 		m_renderer.render(vao, s);
-
-		glfwSwapBuffers(m_renderer.getWindow());
 	}
 
 	void Engine::update(double dt)
@@ -74,15 +76,15 @@ namespace Warreign
 	{
 		m_frameTime = glfwGetTime();
 
-		while (m_isRunning && !glfwWindowShouldClose(m_renderer.getWindow()))
+		while (m_isRunning && !glfwWindowShouldClose(m_window.getHandle()))
 		{
 			double time = glfwGetTime();
 			double dt = time - m_frameTime;
 
-			glfwPollEvents();
-
 			renderScene();
 			update(dt);
+
+			m_window.onUpdate();
 		}
 	}
 }

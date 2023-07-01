@@ -3,6 +3,7 @@
 #include <stdexcept>
 
 #include "rendering/Renderer.h"
+#include "Window.h"
 
 namespace Warreign
 {
@@ -11,10 +12,12 @@ namespace Warreign
 
 	public:
 		Engine();
-
+		~Engine();
 
 	protected:
+		Window m_window;
 		Renderer m_renderer;
+
 		double m_frameTime;
 		bool m_isRunning;
 
