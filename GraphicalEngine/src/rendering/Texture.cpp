@@ -26,7 +26,8 @@ namespace Warreign
 	Texture::~Texture()
 	{
 		glDeleteTextures(1, &m_textureID);
-		delete[] m_data;
+		if (m_data)
+			delete[] m_data;
 	}
 
 	void Texture::loadTexture(const std::string& path)
@@ -56,10 +57,60 @@ namespace Warreign
 		glBindTextureUnit(unit, m_textureID);
 	}
 
+	void Texture::resize(int width, int height, GLenum internalFormat)
+	{
+		glTextureStorage2D(m_textureID, 1, internalFormat, width, height);
+	}
+
 	void Texture::setData(void* data, GLenum format, GLenum type)
 	{
 		glTextureSubImage2D(m_textureID, 0, 0, 0, m_width, m_height, format, type, data);
-		std::memcpy(m_data, data, m_width * m_height);
+		size_t type_size;
+		switch (type)
+		{
+		case GL_FLOAT:
+			type_size = sizeof(float);
+			break;
+		case GL_UNSIGNED_BYTE:
+			type_size = 1;
+			break;
+		default:
+			throw std::runtime_error("Unsupported texture data type!");
+		}
+		if (!m_data)
+			m_data = new uint8_t[m_width * m_height * type_size];
+		std::memcpy(m_data, data, m_width * m_height * type_size);
+	}
+
+	void Texture::setFilter(GLenum minFilter, GLenum magFilter)
+	{
+		glTextureParameteri(m_textureID, GL_TEXTURE_MIN_FILTER, minFilter);
+		glTextureParameteri(m_textureID, GL_TEXTURE_MAG_FILTER, magFilter);
+	}
+
+	void Texture::setWrapping(GLenum s, GLenum t, GLenum r)
+	{
+		glTextureParameteri(m_textureID, GL_TEXTURE_WRAP_S, s);
+		glTextureParameteri(m_textureID, GL_TEXTURE_WRAP_T, t);
+		glTextureParameteri(m_textureID, GL_TEXTURE_WRAP_R, r);
+	}
+
+	void Texture::setSwizzle(GLenum r, GLenum g, GLenum b, GLenum a)
+	{
+		glTextureParameteri(m_textureID, GL_TEXTURE_SWIZZLE_R, r);
+		glTextureParameteri(m_textureID, GL_TEXTURE_SWIZZLE_G, g);
+		glTextureParameteri(m_textureID, GL_TEXTURE_SWIZZLE_B, b);
+		glTextureParameteri(m_textureID, GL_TEXTURE_SWIZZLE_A, a);
+	}
+
+	void Texture::setSwizzleAll(GLenum val)
+	{
+		glTextureParameteri(m_textureID, GL_TEXTURE_SWIZZLE_RGBA, val);
+	}
+
+	void Texture::setParameter(GLenum parameter, GLenum value)
+	{
+		glTextureParameteri(m_textureID, parameter, value);
 	}
 
 }
