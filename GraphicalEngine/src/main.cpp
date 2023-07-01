@@ -15,16 +15,18 @@ int main(int argc, char** argv)
 {
 	std::cout << "Hello World!" << std::endl;
 
+	Warreign::Engine* engine;
 	try {
-		Warreign::Engine engine;
-		engine.run();
+		engine = new Warreign::Engine();
+		engine->run();
 	}
 	catch (std::exception& e)
 	{
 		std::cerr << "ERROR: " << e.what() << std::endl;
-
+		delete engine;
 		exit(EXIT_FAILURE);
 	}
 
+	delete engine;
 	return EXIT_SUCCESS;
 }
