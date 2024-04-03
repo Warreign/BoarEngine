@@ -7,7 +7,7 @@ namespace Warreign
 	{
 #define EVENT_TYPE(type) virtual Type getType() const { return type; }\
 							virtual const char* getName() const { return #type; }\
-							static Type getStatictype() { return type; }
+							static Type getStaticType() { return type; }
 	public:
 		enum Type
 		{

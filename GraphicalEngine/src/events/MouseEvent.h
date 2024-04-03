@@ -4,8 +4,6 @@
 
 namespace Warreign
 {
-	//class MouseEvent() : public
-
 	class MousePressEvent : public Event
 	{
 	public:
