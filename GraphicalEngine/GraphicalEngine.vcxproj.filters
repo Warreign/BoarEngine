@@ -45,9 +45,6 @@
     <ClCompile Include="src\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\events\MouseEvent.h">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine.h">
@@ -74,7 +71,7 @@
     <ClInclude Include="src\rendering\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\GlDebug.h">
+    <ClInclude Include="src\utils\GlDebug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Window.h">
@@ -83,13 +80,16 @@
     <ClInclude Include="src\events\Event.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\InputHandler.h">
+    <ClInclude Include="src\utils\InputHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\events\KeyboardEvent.h">
+    <ClInclude Include="src\events\MouseEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\events\WindowEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\Macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

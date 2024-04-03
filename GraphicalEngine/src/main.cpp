@@ -1,9 +1,9 @@
 #include <iostream>
 #include <stdexcept>
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
+//#include <glad/glad.h>
+//#include <GLFW/glfw3.h>
+//#include <glm/glm.hpp>
 
 #include "Engine.h"
 

@@ -10,6 +10,7 @@ namespace Warreign
 		VertexBuffer(void* data, int count, DataType type, GLenum usageHint = GL_STATIC_DRAW);
 		void destroy();
 
+
 	private:
 		GLuint m_id = 0;
 		int m_count;

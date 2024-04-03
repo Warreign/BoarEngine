@@ -3,6 +3,9 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <functional>
+
+#include "events/Event.h"
 
 namespace Warreign
 {
@@ -15,20 +18,24 @@ namespace Warreign
 	private:
 		GLFWwindow* m_window;
 
-		std::string m_title;
 		uint32_t m_width;
 		uint32_t m_height;
+		std::string m_title;
 		bool m_isVsync = true;
 
+
+	private:
 		void initContext();
 
 	public:
+		std::function<void(Event&)> eventCallback;
+
 		void onUpdate();
 
-		GLFWwindow* getHandle() const { return m_window; }
 		bool isVsync() const { return m_isVsync; }
 		void setVsync(bool value);
 
+		GLFWwindow* getHandle() const { return m_window; }
 		uint32_t getWidth() const { return m_width; }
 		uint32_t getHeight() const { return m_height; }
 		const std::string& getTitle() const { return m_title; }

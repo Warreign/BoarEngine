@@ -3,8 +3,12 @@
 #include <stdexcept>
 #include <glad/glad.h>
 
-#include "GlDebug.h"
+#include "utils/GlDebug.h"
+#include "Engine.h"
 #include "events/Event.h"
+#include "events/MouseEvent.h"
+#include "events/KeyboardEvent.h"
+#include "events/WindowEvent.h"
 
 namespace Warreign
 {
@@ -13,7 +17,7 @@ namespace Warreign
 		throw std::runtime_error(description);
 	}
 
-	Warreign::Window::Window(uint32_t width, uint32_t height, const std::string& title)
+	Window::Window(uint32_t width, uint32_t height, const std::string& title)
 		: m_width(width), m_height(height), m_title(title)
 	{
 		if (!glfwInit())
@@ -42,6 +46,29 @@ namespace Warreign
 		{
 			glfwSwapInterval(1);
 		}
+
+		glfwSetWindowUserPointer(m_window, this);
+
+		glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int state, int mods) 
+			{
+				Window* w = (Window*)glfwGetWindowUserPointer(window);
+
+				switch (state)
+				{
+					case GLFW_PRESS:
+					{
+						MousePressEvent e;
+						w->eventCallback(e);
+						std::cout << "Mouse press callback" << std::endl;
+						break;
+					}
+					case GLFW_RELEASE:
+					{
+						break;
+					}
+				}
+
+			});
 	}
 
 	Window::~Window()

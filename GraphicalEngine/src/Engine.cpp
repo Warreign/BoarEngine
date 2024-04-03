@@ -1,10 +1,10 @@
+#include "utils/Macros.h"
 #include "Engine.h"
 
 namespace Warreign
 {
 	Engine::Engine()
 		: m_renderer(),
-		m_frameTime(0), m_isRunning(true),
 		s("assets/shaders/test.vert", "assets/shaders/test.frag")
 		, t("assets/textures/kanji.png")
 	{
@@ -68,7 +68,23 @@ namespace Warreign
 		m_renderer.render(vao, s);
 	}
 
-	void Engine::update(double dt)
+	void Engine::onUpdate(double dt)
+	{
+	}
+
+	void Engine::onEvent(Event& e)
+	{
+		
+		e.handle<WindowCloseEvent>(EVENT_FUNC(Engine::onWindowClose));
+		e.handle<WindowResizeEvent>(EVENT_FUNC(Engine::onWindowResize));
+
+	}
+
+	void Engine::onWindowClose(WindowCloseEvent& e)
+	{
+	}
+
+	void Engine::onWindowResize(WindowResizeEvent& e)
 	{
 	}
 
@@ -82,7 +98,7 @@ namespace Warreign
 			double dt = time - m_frameTime;
 
 			renderScene();
-			update(dt);
+			onUpdate(dt);
 
 			m_window.onUpdate();
 		}

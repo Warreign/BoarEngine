@@ -96,7 +96,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine.cpp" />
-    <ClCompile Include="src\events\MouseEvent.h" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\rendering\buffers\ElementBuffer.cpp" />
     <ClCompile Include="src\rendering\buffers\VertexArray.cpp" />
@@ -110,17 +109,18 @@
   <ItemGroup>
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\events\Event.h" />
-    <ClInclude Include="src\events\KeyboardEvent.h" />
+    <ClInclude Include="src\events\MouseEvent.h" />
     <ClInclude Include="src\events\WindowEvent.h" />
-    <ClInclude Include="src\InputHandler.h" />
+    <ClInclude Include="src\utils\InputHandler.h" />
     <ClInclude Include="src\rendering\buffers\types.h" />
     <ClInclude Include="src\rendering\buffers\ElementBuffer.h" />
     <ClInclude Include="src\rendering\buffers\VertexArray.h" />
     <ClInclude Include="src\rendering\buffers\VertexBuffer.h" />
-    <ClInclude Include="src\GlDebug.h" />
+    <ClInclude Include="src\utils\GlDebug.h" />
     <ClInclude Include="src\rendering\Renderer.h" />
     <ClInclude Include="src\rendering\Shader.h" />
     <ClInclude Include="src\rendering\Texture.h" />
+    <ClInclude Include="src\utils\Macros.h" />
     <ClInclude Include="src\Window.h" />
     <Resource Include="assets\shaders\test.vert">
       <FileType>Document</FileType>
