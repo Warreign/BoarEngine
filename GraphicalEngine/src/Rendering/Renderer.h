@@ -23,7 +23,7 @@ namespace Warreign
 		void initDevIL();
 
 	public:
-		void render(const VertexArray* VAO, const Shader* shader) const;
+		void render(const VertexArray& VAO, const Shader& shader) const;
 		void onWindowResize(int newWidth, int newHeight);
 	}; 
 }
