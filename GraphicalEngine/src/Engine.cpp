@@ -92,10 +92,12 @@ namespace Warreign
 
 	void Engine::onWindowClose(WindowCloseEvent& e)
 	{
+		m_isRunning = false;
 	}
 
 	void Engine::onWindowResize(WindowResizeEvent& e)
 	{
+		m_renderer->onWindowResize(e.getWidth(), e.getHeight());
 	}
 
 	void Engine::run()

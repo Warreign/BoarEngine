@@ -78,6 +78,23 @@ namespace Warreign
 				MouseMoveEvent e(xPos, yPos);
 				w->eventCallback(e);
 			});
+
+		glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window)
+			{
+				Window* w = static_cast<Window*>(glfwGetWindowUserPointer(window));
+
+				WindowCloseEvent e;
+				w->eventCallback(e);
+			});
+
+		glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int newWidth, int newHeight)
+			{
+				Window* w = static_cast<Window*>(glfwGetWindowUserPointer(window));
+
+				WindowResizeEvent e(newWidth, newHeight);
+				w->eventCallback(e);
+			});
+
 	}
 
 	Window::~Window()
