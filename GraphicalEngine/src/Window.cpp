@@ -57,13 +57,15 @@ namespace Warreign
 				{
 					case GLFW_PRESS:
 					{
-						MousePressEvent e;
+						MousePressEvent e(button);
 						w->eventCallback(e);
 						std::cout << "Mouse press callback" << std::endl;
 						break;
 					}
 					case GLFW_RELEASE:
 					{
+						MouseReleaseEvent e(button);
+						w->eventCallback(e);
 						break;
 					}
 				}
