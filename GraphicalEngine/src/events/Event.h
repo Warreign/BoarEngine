@@ -4,14 +4,15 @@ namespace Warreign
 {
 	class Event
 	{
-#define EVENT_TYPE(type) virtual Type getType() const { return type; }\
+#define EVENT_TYPE(type) public:\
+							virtual Type getType() const { return type; }\
 							virtual const char* getName() const { return #type; }\
 							static Type getStaticType() { return type; }
 	public:
 		enum Type
 		{
 			WindowClose, WindowResize,
-			MousePress, MouseRelease, MouseScroll,
+			MousePress, MouseRelease, MouseScroll, MouseMove,
 			KeyPress, KeyRelease, KeyRepeat
 		};
 

@@ -65,7 +65,7 @@ namespace Warreign
 	private:
 		const float m_xOffset;
 		const float m_yOffset;
-
+	
 		EVENT_TYPE(MouseScroll)
 	};
 
@@ -89,5 +89,7 @@ namespace Warreign
 
 	private:
 		const float m_x, m_y;
+
+		EVENT_TYPE(MouseMove)
 	};
 }
