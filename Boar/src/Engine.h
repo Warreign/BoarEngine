@@ -34,6 +34,7 @@ namespace Warreign
 		void renderScene();
 		void onUpdate(double dt);
 		void onEvent(Event& e);
+		void invokeEvent(Event& e);
 
 		void onWindowClose(WindowCloseEvent& e);
 		void onWindowResize(WindowResizeEvent& e);

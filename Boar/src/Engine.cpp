@@ -3,6 +3,7 @@
 #include "utils/Macros.h"
 
 #include "events/MouseEvent.h"
+#include "events/KeyEvent.h"
 
 namespace Warreign
 {
@@ -88,6 +89,11 @@ namespace Warreign
 		e.handle<WindowCloseEvent>(EVENT_FUNC(Engine::onWindowClose));
 		e.handle<WindowResizeEvent>(EVENT_FUNC(Engine::onWindowResize));
 
+	}
+
+	void Engine::invokeEvent(Event& e)
+	{
+		m_window->eventCallback(e);
 	}
 
 	void Engine::onWindowClose(WindowCloseEvent& e)
