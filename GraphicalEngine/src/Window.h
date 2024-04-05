@@ -28,12 +28,14 @@ namespace Warreign
 		void initContext();
 
 	public:
-		std::function<void(Event&)> eventCallback;
+		EventCallback eventCallback;
 
 		void onUpdate();
 
 		bool isVsync() const { return m_isVsync; }
 		void setVsync(bool value);
+
+		void setEventCallback(EventCallback func) { eventCallback = func; }
 
 		GLFWwindow* getHandle() const { return m_window; }
 		uint32_t getWidth() const { return m_width; }
