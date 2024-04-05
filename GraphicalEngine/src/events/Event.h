@@ -2,7 +2,6 @@
 
 namespace Warreign
 {
-
 	class Event
 	{
 #define EVENT_TYPE(type) virtual Type getType() const { return type; }\
@@ -38,4 +37,7 @@ namespace Warreign
 		virtual Type getType() const = 0;
 		virtual const char* getName() const = 0;
 	};
+
+	using EventCallback = std::function<void(Event&)>;
+
 }
