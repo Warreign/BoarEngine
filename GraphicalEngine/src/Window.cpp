@@ -79,6 +79,14 @@ namespace Warreign
 				w->eventCallback(e);
 			});
 
+		glfwSetScrollCallback(m_window, [](GLFWwindow* window, double xOffset, double yOffset)
+			{
+				Window* w = static_cast<Window*>(glfwGetWindowUserPointer(window));
+
+				MouseScrollEvent e(xOffset, yOffset);
+				w->eventCallback(e);
+			});
+
 		glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window)
 			{
 				Window* w = static_cast<Window*>(glfwGetWindowUserPointer(window));
