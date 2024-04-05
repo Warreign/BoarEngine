@@ -7,7 +7,7 @@
 #include "Engine.h"
 #include "events/Event.h"
 #include "events/MouseEvent.h"
-#include "events/KeyboardEvent.h"
+#include "events/KeyEvent.h"
 #include "events/WindowEvent.h"
 
 namespace Warreign
@@ -101,6 +101,33 @@ namespace Warreign
 
 				WindowResizeEvent e(newWidth, newHeight);
 				w->eventCallback(e);
+			});
+
+		glfwSetKeyCallback(m_window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
+			{
+				Window* w = static_cast<Window*>(glfwGetWindowUserPointer(window));
+
+				switch (action)
+				{
+					case GLFW_PRESS:
+					{
+						KeyPressEvent e(key);
+						w->eventCallback(e);
+						break;
+					}
+					case GLFW_RELEASE:
+					{
+						KeyReleaseEvent e(key);
+						w->eventCallback(e);
+						break;
+					}
+					case GLFW_REPEAT:
+					{
+						KeyRepeatEvent e(key);
+						w->eventCallback(e);
+						break;
+					}
+				}
 			});
 
 	}
