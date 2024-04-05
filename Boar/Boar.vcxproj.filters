@@ -92,10 +92,13 @@
     <ClInclude Include="src\utils\Macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\events\MouseKeys.h">
+    <ClInclude Include="src\events\MouseButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\events\KeyboardEvent.h">
+    <ClInclude Include="src\events\KeyEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\events\KeyboardButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

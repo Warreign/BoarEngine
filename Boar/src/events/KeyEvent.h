@@ -43,4 +43,16 @@ namespace Warreign
 
 		EVENT_TYPE(KeyRelease)
 	};
+
+	class KeyRepeatEvent : public KeyEvent
+	{
+	public:
+		KeyRepeatEvent(const KeyboardButton key)
+			: KeyEvent(key)
+		{
+		}
+
+		EVENT_TYPE(KeyRepeat)
+	};
+
 }

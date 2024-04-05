@@ -109,9 +109,10 @@
   <ItemGroup>
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\events\Event.h" />
-    <ClInclude Include="src\events\KeyboardEvent.h" />
+    <ClInclude Include="src\events\KeyboardButton.h" />
+    <ClInclude Include="src\events\KeyEvent.h" />
     <ClInclude Include="src\events\MouseEvent.h" />
-    <ClInclude Include="src\events\MouseKeys.h" />
+    <ClInclude Include="src\events\MouseButton.h" />
     <ClInclude Include="src\events\WindowEvent.h" />
     <ClInclude Include="src\utils\InputHandler.h" />
     <ClInclude Include="src\rendering\buffers\types.h" />
