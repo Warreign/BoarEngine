@@ -4,10 +4,11 @@
 namespace Warreign
 {
 	Engine::Engine()
-		: m_renderer(),
-		s("assets/shaders/test.vert", "assets/shaders/test.frag")
+		: s("assets/shaders/test.vert", "assets/shaders/test.frag")
 		, t("assets/textures/kanji.png")
 	{
+		m_window = std::make_unique<Window>(new Window());
+
 		setup();
 	}
 
@@ -17,6 +18,8 @@ namespace Warreign
 
 	void Engine::setup()
 	{
+		m_renderer = std::make_unique<Renderer>(new Renderer());
+
 		float positions[] = {
 			-0.5,  0.5,
 			-0.5, -0.5,
