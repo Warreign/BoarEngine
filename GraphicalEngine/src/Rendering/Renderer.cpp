@@ -28,14 +28,14 @@ namespace Warreign
 		glViewport(0, 0, newWidth, newHeight);
 	}
 
-	void Renderer::render(const VertexArray& VAO, const Shader& shader) const
+	void Renderer::render(const VertexArray* VAO, const Shader* shader) const
 	{
-		const ElementBuffer& EBO = VAO.getElementBuffer();
-		shader.bind();
-		VAO.bind();
+		const ElementBuffer& EBO = VAO->getElementBuffer();
+		shader->bind();
+		VAO->bind();
 		glDrawElements(GL_TRIANGLES, EBO.getCount(), EBO.getType(), 0);
-		VAO.unbind();
-		shader.unbind();
+		VAO->unbind();
+		shader->unbind();
 			
 	}
 }

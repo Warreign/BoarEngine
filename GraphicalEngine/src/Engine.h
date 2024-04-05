@@ -25,9 +25,9 @@ namespace Warreign
 
 		// TMP
 	protected:
-		VertexArray vao;
-		Shader s;
-		Texture t;
+		std::unique_ptr<VertexArray> vao;
+		std::unique_ptr<Shader> s;
+		std::unique_ptr<Texture> t;
 
 	protected:
 		void setup();

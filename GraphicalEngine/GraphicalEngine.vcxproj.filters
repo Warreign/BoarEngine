@@ -95,6 +95,9 @@
     <ClInclude Include="src\events\MouseKeys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\events\KeyboardEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\shaders\test.frag" />
