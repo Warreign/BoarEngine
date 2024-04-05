@@ -1,5 +1,8 @@
-#include "utils/Macros.h"
 #include "Engine.h"
+
+#include "utils/Macros.h"
+
+#include "events/MouseEvent.h"
 
 namespace Warreign
 {
@@ -47,6 +50,8 @@ namespace Warreign
 			0, 1, 2,
 			2, 3, 0
 		};
+
+		vao = std::make_unique<VertexArray>();
 		
 		VertexBuffer positionVBO(positions, 4, FVEC2);
 		vao->addVertexBuffer(positionVBO, 0);
@@ -70,7 +75,7 @@ namespace Warreign
 	void Engine::renderScene()
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
-		m_renderer->render(vao, s);
+		m_renderer->render(*vao, *s);
 	}
 
 	void Engine::onUpdate(double dt)
@@ -97,7 +102,7 @@ namespace Warreign
 	{
 		m_frameTime = glfwGetTime();
 
-		while (m_isRunning && !glfwWindowShouldClose(m_window->getHandle()))
+		while (m_isRunning)
 		{
 			double time = glfwGetTime();
 			double dt = time - m_frameTime;

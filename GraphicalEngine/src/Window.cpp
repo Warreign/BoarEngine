@@ -51,7 +51,7 @@ namespace Warreign
 
 		glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int state, int mods) 
 			{
-				Window* w = (Window*)glfwGetWindowUserPointer(window);
+				Window* w = static_cast<Window*>(glfwGetWindowUserPointer(window));
 
 				switch (state)
 				{
@@ -59,7 +59,6 @@ namespace Warreign
 					{
 						MousePressEvent e(button);
 						w->eventCallback(e);
-						std::cout << "Mouse press callback" << std::endl;
 						break;
 					}
 					case GLFW_RELEASE:
@@ -70,6 +69,14 @@ namespace Warreign
 					}
 				}
 
+			});
+
+		glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double xPos, double yPos)
+			{
+				Window* w = static_cast<Window*>(glfwGetWindowUserPointer(window));
+
+				MouseMoveEvent e(xPos, yPos);
+				w->eventCallback(e);
 			});
 	}
 
