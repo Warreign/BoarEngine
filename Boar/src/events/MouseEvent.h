@@ -1,7 +1,7 @@
 #pragma once
 
 #include "events/Event.h"
-#include "MouseKeys.h"
+#include "MouseButton.h"
 
 namespace Warreign
 {
@@ -19,7 +19,7 @@ namespace Warreign
 		}
 
 	private:
-		MouseButton m_button;
+		const MouseButton m_button;
 	};
 
 	class MousePressEvent : public MouseButtonEvent

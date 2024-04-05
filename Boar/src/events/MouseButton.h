@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 namespace Warreign 
 {
 	using MouseButton = uint8_t;
