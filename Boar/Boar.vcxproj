@@ -14,7 +14,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f012167c-5737-4c54-8bb0-ab8b064e5790}</ProjectGuid>
+    <ProjectGuid>{D23C4D9F-FC6C-4E82-8447-622B6DFCD446}</ProjectGuid>
     <RootNamespace>GraphicalEngine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

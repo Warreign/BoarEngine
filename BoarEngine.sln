@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.33711.374
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GraphicalEngine", "GraphicalEngine\GraphicalEngine.vcxproj", "{F012167C-5737-4C54-8BB0-AB8B064E5790}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Boar", "Boar\Boar.vcxproj", "{D23C4D9F-FC6C-4E82-8447-622B6DFCD446}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F012167C-5737-4C54-8BB0-AB8B064E5790}.Debug|x64.ActiveCfg = Debug|x64
-		{F012167C-5737-4C54-8BB0-AB8B064E5790}.Debug|x64.Build.0 = Debug|x64
-		{F012167C-5737-4C54-8BB0-AB8B064E5790}.Release|x64.ActiveCfg = Release|x64
-		{F012167C-5737-4C54-8BB0-AB8B064E5790}.Release|x64.Build.0 = Release|x64
+		{D23C4D9F-FC6C-4E82-8447-622B6DFCD446}.Debug|x64.ActiveCfg = Debug|x64
+		{D23C4D9F-FC6C-4E82-8447-622B6DFCD446}.Debug|x64.Build.0 = Debug|x64
+		{D23C4D9F-FC6C-4E82-8447-622B6DFCD446}.Release|x64.ActiveCfg = Release|x64
+		{D23C4D9F-FC6C-4E82-8447-622B6DFCD446}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
