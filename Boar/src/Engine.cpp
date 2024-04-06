@@ -119,6 +119,7 @@ namespace Warreign
 			onUpdate(dt);
 
 			m_window->onUpdate();
+			m_frameTime = glfwGetTime();
 		}
 	}
 }
