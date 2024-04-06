@@ -82,7 +82,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\glad\include;$(SolutionDir)\Dependencies\glm;$(SolutionDir)\Dependencies\glfw64\include;$(SolutionDir)Dependencies\devIL\include;$(SolutionDir)Dependencies\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src; $(SolutionDir)\Dependencies\glad\include;$(SolutionDir)\Dependencies\glm;$(SolutionDir)\Dependencies\glfw64\include;$(SolutionDir)Dependencies\devIL\include;$(SolutionDir)Dependencies\freetype\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -107,6 +107,7 @@
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\events\Event.h" />
     <ClInclude Include="src\events\KeyboardButton.h" />

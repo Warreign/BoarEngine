@@ -101,6 +101,9 @@
     <ClInclude Include="src\events\KeyboardButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\Component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\shaders\test.frag" />
